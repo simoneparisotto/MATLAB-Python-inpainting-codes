@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# MATLAB-Codes-for-the-Image-Inpainting-Problem
-=======
 # MATLAB codes for the Image Inpainting Problem
 This is a detailed Matlab implementation of classic inpainting methods.
 
@@ -87,4 +84,3 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 **Bibliography**:
 - Bertalmio, M. (2001). Processing of flat and non-flat image information on arbitrary manifolds using partial differential equations.PhD Thesis, 2001.
->>>>>>> 25978da7570bd0550b9f46796f993a60c600c775
