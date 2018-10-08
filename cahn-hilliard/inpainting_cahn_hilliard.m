@@ -49,7 +49,7 @@ function inpainting_cahn_hilliard(imagefilename,maskfilename,maxiter,param)
 % The modified Cahn-Hilliard equation was discretized based on
 % convexity splitting proposed in the same paper and analysed in
 %
-% C.-B. Schönlieb, A. Bertozzi, Unconditionally stable schemes for
+% C.-B. Schoenlieb, A. Bertozzi, Unconditionally stable schemes for
 % higher order inpainting, Communications in Mathematical Sciences,
 % Volume 9, Issue 2, pp. 413-457 (2011).
 %
@@ -100,7 +100,7 @@ dt           = param.dt;
 % Q is nonsingular, the matrix of eigenvectors of L and D is a diagonal matrix.
 % We have to compute QuQ. This we can do in a fast way by using the fft-transform:
 
-Lambda1 = spdiags(2*(cos(2*(0:iminfo.Height-1)'*pi/iminfo.Width)-1),0,iminfo.Height,iminfo.Height)/h1^2;
+Lambda1 = spdiags(2*(cos(2*(0:iminfo.Height-1)'*pi/iminfo.Height)-1),0,iminfo.Height,iminfo.Height)/h1^2;
 Lambda2 = spdiags(2*(cos(2*(0:iminfo.Width-1)'*pi/iminfo.Width)-1),0,iminfo.Width,iminfo.Width)/h2^2;
 
 Denominator = Lambda1*ones(iminfo.Height,iminfo.Width) + ones(iminfo.Height,iminfo.Width)*Lambda2;
