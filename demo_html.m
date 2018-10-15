@@ -73,9 +73,8 @@
 % *Bibliography*
 %
 % * Caselles, V., Morel, J. M., & Sbert, C. (1998). An axiomatic approach to image interpolation. Image Processing, IEEE Transactions on, 7(3), 376-386.
-% * Almansa, A. (2002). Echantillonnage, interpolation et détection: applications en imagerie satellitaire (Doctoral dissertation, Cachan, Ecole normale supérieure). 
+% * Almansa, A. (2002). Echantillonnage, interpolation et detection: applications en imagerie satellitaire (Doctoral dissertation, Cachan, Ecole normale superieure). 
  
-
 cd ./amle
 
 imagefilename = 'input_amle.png';
@@ -86,9 +85,7 @@ tol           = 1e-8;
 maxiter       = 40000;
 dt            = 0.01;
 
-tic
-inpainting_amle(imagefilename,lambda,tol,maxiter,dt)
-toc
+inpainting_amle(imagefilename,lambda,tol,maxiter,dt);
 
 cd ..
 
@@ -111,7 +108,7 @@ cd ..
 %
 
 %% Harmonic Inpainting
-% See the code 
+% See the code  code> 
 % <matlab:edit(fullfile('./harmonic/inpainting_harmonic.m')) inpainting_harmonic.m> 
 % for the publish function.
 %%
@@ -122,7 +119,6 @@ cd ..
 % *Bibliography*
 %
 % * Shen, J., & Chan, T. F. (2002). Mathematical models for local nontexture inpaintings. SIAM Journal on Applied Mathematics, 62(3), 1019-1043.
-
 
 cd ./harmonic
 
@@ -135,7 +131,7 @@ tol           = 1e-5;
 maxiter       = 500;
 dt            = 0.1;
 
-inpainting_harmonic(imagefilename,maskfilename,lambda,tol,maxiter,dt)
+inpainting_harmonic(imagefilename,maskfilename,lambda,tol,maxiter,dt);
 
 cd ..
 
@@ -170,8 +166,6 @@ cd ..
 %
 % * Esedoglu, S., & Shen, J. (2002). Digital inpainting based on the Mumford-Shah-Euler image model. European Journal of Applied Mathematics, 13(04), 353-370.
 
-
-
 cd ./mumford-shah
 
 imagefilename = 'input_mumford_shah.png';
@@ -185,7 +179,7 @@ param.alpha   = 1;  % regularisation parameters \alpha.
 param.gamma   = 0.5;    % regularisation parameters \gamma.
 param.epsilon = 0.05;    % accuracy of Ambrosio-Tortorelli approximation of the edge set.
 
-inpainting_mumford_shah(imagefilename,maskfilename,maxiter,tol,param)
+inpainting_mumford_shah(imagefilename,maskfilename,maxiter,tol,param);
 
 cd ..
 
@@ -195,19 +189,12 @@ cd ..
 % <tr>
 %   <td style="text-align:center;"><b>Input</b></td>
 %   <td style="text-align:center;"><b>Output</b></td>
+%   <td style="text-align:center;"><b>Levels</b></td>
 % </tr>
 % <tr>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/masked_mumford_shah.png" style="max-height:100%; max-width:100%"></img></td>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/output_mumford_shah.png" style="max-height:100%; max-width:100%"</img></td></tr>
-% </tr>
-% </table>
-% <table border="1" cellspacing="10px" cellpadding="10px">
-% <tr>
-%   <td style="text-align:center;"></td>
-%   <td style="text-align:center;"><b>Levels</b></td></tr>
-% <tr>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"></td>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/levels_mumford_shah.png" style="max-height:100%; max-width:100%"</img></td>
+%   <td style="width:33%; height:33%; text-align:center; vertical-align:middle"><img src="images/masked_mumford_shah.png" style="max-height:100%; max-width:100%"></img></td>
+%   <td style="width:33%; height:33%; text-align:center; vertical-align:middle"><img src="images/output_mumford_shah.png" style="max-height:100%; max-width:100%"</img></td>
+%   <td style="width:33%; height:33%; text-align:center; vertical-align:middle"><img src="images/levels_mumford_shah.png" style="max-height:100%; max-width:100%"</img></td>
 % </tr>
 % </table>
 % </html>
@@ -241,7 +228,7 @@ param.epsilon = [100 1];
 param.lambda  = 10;
 param.dt      = 1;
 
-inpainting_cahn_hilliard(imagefilename,maskfilename,maxiter,param)
+inpainting_cahn_hilliard(imagefilename,maskfilename,maxiter,param);
 
 cd ..
 
@@ -289,7 +276,7 @@ param.M       = 40; % number of steps of the inpainting procedure;
 param.N       = 2;  % number of steps of the anisotropic diffusion;
 param.eps     = 1e-10;
 
-inpainting_transport(imagefilename,maskfilename,maxiter,tol,dt,param)
+inpainting_transport(imagefilename,maskfilename,maxiter,tol,dt,param);
 
 cd ..
 

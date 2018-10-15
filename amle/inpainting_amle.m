@@ -39,7 +39,7 @@
 %  September, 2016
 %%
 
-function inpainting_amle(imagefilename,lambda,tol,maxiter,dt)
+function u = inpainting_amle(imagefilename,lambda,tol,maxiter,dt)
 
 %% ----------------- CREATE A log FILE WHERE TO STORE RESULTS IN txt FORMAT
 logfilename = 'log_amle.log';

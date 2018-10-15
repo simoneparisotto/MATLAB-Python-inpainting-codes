@@ -73,7 +73,7 @@ maxiter       = 40000;
 dt            = 0.01;
 
 tic
-inpainting_amle(imagefilename,lambda,tol,maxiter,dt)
+inpainting_amle(imagefilename,lambda,tol,maxiter,dt);
 toc
 
 cd ..
@@ -90,7 +90,7 @@ tol           = 1e-5;
 maxiter       = 500;
 dt            = 0.1;
 
-inpainting_harmonic(imagefilename,maskfilename,lambda,tol,maxiter,dt)
+inpainting_harmonic(imagefilename,maskfilename,lambda,tol,maxiter,dt);
 
 cd ..
 
@@ -104,11 +104,11 @@ maskfilename  = 'mask_mumford_shah.png';
 maxiter       = 20; 
 tol           = 1e-14;
 param.lambda  = 10^9;   % weight on data fidelity (should usually be large).
-param.alpha   = 1;  % regularisation parameters \alpha.
+param.alpha   = 1;      % regularisation parameters \alpha.
 param.gamma   = 0.5;    % regularisation parameters \gamma.
-param.epsilon = 0.05;    % accuracy of Ambrosio-Tortorelli approximation of the edge set.
+param.epsilon = 0.05;   % accuracy of Ambrosio-Tortorelli approximation of the edge set.
 
-inpainting_mumford_shah(imagefilename,maskfilename,maxiter,tol,param)
+inpainting_mumford_shah(imagefilename,maskfilename,maxiter,tol,param);
 
 cd ..
 
@@ -124,7 +124,7 @@ param.epsilon = [100 1];
 param.lambda  = 10;
 param.dt      = 1;
 
-inpainting_cahn_hilliard(imagefilename,maskfilename,maxiter,param)
+inpainting_cahn_hilliard(imagefilename,maskfilename,maxiter,param);
 
 cd ..
 
@@ -142,6 +142,6 @@ param.M       = 40; % number of steps of the inpainting procedure;
 param.N       = 2;  % number of steps of the anisotropic diffusion;
 param.eps     = 1e-10;
 
-inpainting_transport(imagefilename,maskfilename,maxiter,tol,dt,param)
+inpainting_transport(imagefilename,maskfilename,maxiter,tol,dt,param);
 
 cd ..

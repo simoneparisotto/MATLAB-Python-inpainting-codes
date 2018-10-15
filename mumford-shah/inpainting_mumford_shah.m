@@ -39,7 +39,7 @@
 %  September, 2016
 %%
 
-function inpainting_mumford_shah(imagefilename,maskfilename,maxiter,tol,param)
+function [u_end,chi_end] = inpainting_mumford_shah(imagefilename,maskfilename,maxiter,tol,param)
 % Inpainting with the Mumford-Shah image model and Ambrosio-Tortorelli.
 % For a given grey value image ustart with image domain \Omega and
 % inpainting  domain (damaged part) D we want to reconstruct an image u from f

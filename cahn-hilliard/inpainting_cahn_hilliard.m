@@ -39,7 +39,7 @@
 %  September, 2016
 %%
 
-function inpainting_cahn_hilliard(imagefilename,maskfilename,maxiter,param)
+function u_end = inpainting_cahn_hilliard(imagefilename,maskfilename,maxiter,param)
 % Cahn-Hilliard inpainting based on the paper
 %
 % Bertozzi, Andrea L., Selim Esedoglu, and Alan Gillette.

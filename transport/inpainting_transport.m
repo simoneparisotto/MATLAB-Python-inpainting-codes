@@ -39,7 +39,7 @@
 %  September, 2016
 %%
 
-function inpainting_transport(imagefilename,maskfilename,maxiter,tol,dt,param)
+function u_end = inpainting_transport(imagefilename,maskfilename,maxiter,tol,dt,param)
 
 %% ----------------- CREATE A log FILE WHERE TO STORE RESULTS IN txt FORMAT
 logfilename = 'log_transport.log';
