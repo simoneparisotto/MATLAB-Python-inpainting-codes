@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>MATLAB Codes for the Image Inpainting Problem</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-10-15"><meta name="DC.source" content="demo_html.m"><style type="text/css">
+      --><title>MATLAB Codes for the Image Inpainting Problem</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-10-23"><meta name="DC.source" content="demo_html.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,150 +66,67 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>MATLAB Codes for the Image Inpainting Problem</h1><!--introduction--><pre>Copyright (c) 2016, Simone Parisotto and Carola-Bibiane Schoenlieb
-All rights reserved.</pre><pre>Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:</pre><pre>1. Redistributions of source code must retain the above copyright notice,
-   this list of conditions and the following disclaimer.</pre><pre>2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.</pre><pre>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
-TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</pre><pre>Authors:
-Simone Parisotto (email: sp751 at cam dot ac dot uk)
-Carola-Bibiane Schoenlieb (email: cbs31 at cam dot ac dot uk)</pre><pre>Address:
-Cambridge Image Analysis
-Centre for Mathematical Sciences
-Wilberforce Road
-Cambridge CB3 0WA
-United Kingdom</pre><pre>Date:
-September, 2016</pre><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">How to cite this work</a></li><li><a href="#5">Absolute Minimizing Lipschitz Extension Inpainting (AMLE)</a></li><li><a href="#10">Harmonic Inpainting</a></li><li><a href="#15">Mumford-Shah Inpainting</a></li><li><a href="#20">Cahn-Hilliard Inpainting</a></li><li><a href="#25">Transport Inpainting</a></li><li><a href="#30">M-file that created this page</a></li></ul></div><h2 id="1">How to cite this work</h2><p>All the scripts provided are used in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015):</p><pre>@book{Schonlieb:2015ux,
- author    = {Sch\"{o}nlieb, Carola-Bibiane},
- title     = {{Partial Differential Equation Methods for Image Inpainting}},
- publisher = {Cambridge University Press},
- month     = {November}
- year      = {2015},
-}</pre><p>Please use the following entry to cite this code:</p><pre>@Misc{MATLABinpainting2016,
+  </style></head><body><div class="content"><h1>MATLAB Codes for the Image Inpainting Problem</h1><!--introduction--><p>All the scripts provided are used in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><p>Authors: Simone Parisotto          (email: sp751 at cam dot ac dot uk) Carola-Bibiane Schoenlieb (email: cbs31 at cam dot ac dot uk)</p><p>Address: Cambridge Image Analysis Centre for Mathematical Sciences Wilberforce Road CB3 0WA, Cambridge, United Kingdom</p><p>Date: September, 2016</p><p>Last update: October, 2018</p><p>Licence: BSD-3-Clause (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>)</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">How to cite this work</a></li><li><a href="#3">1) AMLE Inpainting (Absolute Minimizing Lipschitz Extension Inpainting)</a></li><li><a href="#11">2) Harmonic Inpainting</a></li><li><a href="#19">3) Mumford-Shah Inpainting</a></li><li><a href="#27">4) Cahn-Hilliard Inpainting</a></li><li><a href="#35">5) Transport Inpainting</a></li><li><a href="#43">M-file that created this page</a></li></ul></div><h2 id="1">How to cite this work</h2><p>Please use the following entry to cite this code:</p><pre>@Misc{MATLABinpainting2016,
  author       = {Parisotto, Simone and Sch\"{o}nlieb, Carola},
  title        = {MATLAB Codes for the {Image} {Inpainting} {Problem}},
  howpublished = {GitHub repository, {MATLAB} Central File Exchange},
  month        = {September},
  year         = {2016}
-}</pre><h2 id="5">Absolute Minimizing Lipschitz Extension Inpainting (AMLE)</h2><p>See the code <a href="matlab:edit(fullfile('./amle/inpainting_amle.m'))">inpainting_amle.m</a> for the publish function.</p><p><b>Note</b>: Function used to reproduce Figure 4.10 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><p><b>Bibliography</b></p><div><ul><li>Caselles, V., Morel, J. M., &amp; Sbert, C. (1998). An axiomatic approach to image interpolation. Image Processing, IEEE Transactions on, 7(3), 376-386.</li><li>Almansa, A. (2002). Echantillonnage, interpolation et detection: applications en imagerie satellitaire (Doctoral dissertation, Cachan, Ecole normale superieure).</li></ul></div><pre class="codeinput">cd <span class="string">./amle</span>
-
-imagefilename = <span class="string">'input_amle.png'</span>;
-
-<span class="comment">% PARAMETERS</span>
+}</pre><h2 id="3">1) AMLE Inpainting (Absolute Minimizing Lipschitz Extension Inpainting)</h2><p>Function used to reproduce Figure 4.10 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'amle_clean.png'</span>;
+</pre><p>amle_clean.png :</p><p><img vspace="5" hspace="5" src="amle_clean.png" alt=""> </p><pre class="codeinput">maskfilename  = <span class="string">'amle_mask.png'</span>;
+</pre><p>amle_mask.png :</p><p><img vspace="5" hspace="5" src="amle_mask.png" alt=""> </p><pre class="codeinput">[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,<span class="string">'./dataset/amle_input.png'</span>)
+</pre><p>amle_input.png :</p><p><img vspace="5" hspace="5" src="amle_input.png" alt=""> </p><pre class="codeinput"><span class="comment">% parameters</span>
 lambda        = 10^2;
 tol           = 1e-8;
 maxiter       = 40000;
 dt            = 0.01;
 
-inpainting_amle(imagefilename,lambda,tol,maxiter,dt);
-
-cd <span class="string">..</span>
-</pre><p>
-<table border="1" cellspacing="10px" cellpadding="10px">
-<tr>
-  <td style="text-align:center;"><b>Input</b></td>
-  <td style="text-align:center;"><b>Output</b></td>
-</tr>
-<tr>
-  <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/input_amle.png" style="max-height:100%; max-width:100%"></img></td>
-  <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/output_amle.png" style="max-height:100%; max-width:100%"</img></td>
-</tr>
-</table>
-</p><p><b>Tic/Toc time</b>: Elapsed time is 45.978034 seconds.</p><h2 id="10">Harmonic Inpainting</h2><p>See the code  code&gt; <a href="matlab:edit(fullfile('./harmonic/inpainting_harmonic.m'))">inpainting_harmonic.m</a> for the publish function.</p><p><b>Note</b>: Function used to reproduce Figure 2.2 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><p><b>Bibliography</b></p><div><ul><li>Shen, J., &amp; Chan, T. F. (2002). Mathematical models for local nontexture inpaintings. SIAM Journal on Applied Mathematics, 62(3), 1019-1043.</li></ul></div><pre class="codeinput">cd <span class="string">./harmonic</span>
-
-imagefilename = <span class="string">'input_harmonic.png'</span>;
-maskfilename  = <span class="string">'mask_harmonic.png'</span>;
-
-<span class="comment">% PARAMETERS</span>
+<span class="comment">% inpainting</span>
+inpainting_amle(u,mask,lambda,tol,maxiter,dt);
+</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="amle_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 45.978034 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','inpainting_amle.m'))">inpainting_amle.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Caselles, V., Morel, J. M., &amp; Sbert, C. (1998). An axiomatic approach to image interpolation. Image Processing, IEEE Transactions on, 7(3), 376-386.</li><li>Almansa, A. (2002). Echantillonnage, interpolation et detection: applications en imagerie satellitaire (Doctoral dissertation, Cachan, Ecole normale superieure).</li></ul></div><h2 id="11">2) Harmonic Inpainting</h2><p>Function used to reproduce Figure 2.2 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'harmonic_clean.png'</span>;
+</pre><p>harmonic_clean.png :</p><p><img vspace="5" hspace="5" src="harmonic_clean.png" alt=""> </p><pre class="codeinput">maskfilename  = <span class="string">'harmonic_mask.png'</span>;
+</pre><p>harmonic_mask.png :</p><p><img vspace="5" hspace="5" src="harmonic_mask.png" alt=""> </p><pre class="codeinput">[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,<span class="string">'./dataset/harmonic_input.png'</span>)
+</pre><p>harmonic_input.png :</p><p><img vspace="5" hspace="5" src="harmonic_input.png" alt=""> </p><pre class="codeinput"><span class="comment">% parameters</span>
 lambda        = 10;
 tol           = 1e-5;
 maxiter       = 500;
 dt            = 0.1;
 
-inpainting_harmonic(imagefilename,maskfilename,lambda,tol,maxiter,dt);
-
-cd <span class="string">..</span>
-</pre><p>
-<table border="1" cellspacing="10px" cellpadding="10px">
-<tr>
-  <td style="text-align:center;"><b>Input</b></td>
-  <td style="text-align:center;"><b>Output</b></td>
-</tr>
-<tr>
-  <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/masked_harmonic.png" style="max-height:100%; max-width:100%"></img></td>
-  <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/output_harmonic.png" style="max-height:100%; max-width:100%"</img></td>
-</tr>
-</table>
-</p><p><b>Tic/Toc time</b>: Elapsed time is 1.010271 seconds.</p><h2 id="15">Mumford-Shah Inpainting</h2><p>See the code <a href="matlab:edit(fullfile('./mumford-shah/inpainting_mumford_shah.m'))">inpainting_mumford_shah.m</a> for the publish function.</p><p><b>Note</b>: Function used to reproduce Figure 7.3 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><p><b>Bibliography</b></p><div><ul><li>Esedoglu, S., &amp; Shen, J. (2002). Digital inpainting based on the Mumford-Shah-Euler image model. European Journal of Applied Mathematics, 13(04), 353-370.</li></ul></div><pre class="codeinput">cd <span class="string">./mumford-shah</span>
-
-imagefilename = <span class="string">'input_mumford_shah.png'</span>;
-maskfilename  = <span class="string">'mask_mumford_shah.png'</span>;
-
-<span class="comment">% PARAMETERS</span>
+<span class="comment">% inpainting</span>
+inpainting_harmonic(u,mask,lambda,tol,maxiter,dt);
+</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="harmonic_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 1.010271 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','harmonic','inpainting_harmonic.m'))">inpainting_harmonic.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Shen, J., &amp; Chan, T. F. (2002). Mathematical models for local nontexture inpaintings. SIAM Journal on Applied Mathematics, 62(3), 1019-1043.</li></ul></div><h2 id="19">3) Mumford-Shah Inpainting</h2><p>Function used to reproduce Figure 7.3 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'mumford_shah_clean.png'</span>;
+</pre><p>mumford_shah_clean.png :</p><p><img vspace="5" hspace="5" src="mumford_shah_clean.png" alt=""> </p><pre class="codeinput">maskfilename  = <span class="string">'mumford_shah_mask.png'</span>;
+</pre><p>mumford_shah_mask.png :</p><p><img vspace="5" hspace="5" src="mumford_shah_mask.png" alt=""> </p><pre class="codeinput">[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,<span class="string">'./dataset/mumford_shah_input.png'</span>)
+</pre><p>mumford_shah_input.png :</p><p><img vspace="5" hspace="5" src="mumford_shah_input.png" alt=""> </p><pre class="codeinput"><span class="comment">% parameters</span>
 maxiter       = 20;
 tol           = 1e-14;
 param.lambda  = 10^9;   <span class="comment">% weight on data fidelity (should usually be large).</span>
-param.alpha   = 1;  <span class="comment">% regularisation parameters \alpha.</span>
+param.alpha   = 1;      <span class="comment">% regularisation parameters \alpha.</span>
 param.gamma   = 0.5;    <span class="comment">% regularisation parameters \gamma.</span>
-param.epsilon = 0.05;    <span class="comment">% accuracy of Ambrosio-Tortorelli approximation of the edge set.</span>
+param.epsilon = 0.05;   <span class="comment">% accuracy of Ambrosio-Tortorelli approximation of the edge set.</span>
 
-inpainting_mumford_shah(imagefilename,maskfilename,maxiter,tol,param);
-
-cd <span class="string">..</span>
-</pre><p>
-<table border="1" cellspacing="10px" cellpadding="10px">
-<tr>
-  <td style="text-align:center;"><b>Input</b></td>
-  <td style="text-align:center;"><b>Output</b></td>
-  <td style="text-align:center;"><b>Levels</b></td>
-</tr>
-<tr>
-  <td style="width:33%; height:33%; text-align:center; vertical-align:middle"><img src="images/masked_mumford_shah.png" style="max-height:100%; max-width:100%"></img></td>
-  <td style="width:33%; height:33%; text-align:center; vertical-align:middle"><img src="images/output_mumford_shah.png" style="max-height:100%; max-width:100%"</img></td>
-  <td style="width:33%; height:33%; text-align:center; vertical-align:middle"><img src="images/levels_mumford_shah.png" style="max-height:100%; max-width:100%"</img></td>
-</tr>
-</table>
-</p><p><b>Tic/Toc time</b>: Elapsed time is 68.771376 seconds.</p><h2 id="20">Cahn-Hilliard Inpainting</h2><p>See the code <a href="matlab:edit(fullfile('./cahn-Hilliard/inpainting_cahn_hilliard.m'))">inpainting_cahn_hilliard.m</a> for the publish function.</p><p><b>Note</b>: Function used to reproduce Figure 5.9 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><p><b>Bibliography</b></p><div><ul><li>Bertozzi, A., Esedoglu, S. &amp; Gillette, A. (2007). Inpainting of binary images using the Cahn-Hilliard equation, IEEE Transactions on image processing 16.1 pp. 285-291 (2007).</li><li>Schoenlieb, C.-B. &amp; Bertozzi, A. (2011). Unconditionally stable schemes for higher order inpainting, Communications in Mathematical Sciences, Volume 9, Issue 2, pp. 413-457 (2011).</li></ul></div><pre class="codeinput">cd <span class="string">./cahn-hilliard</span>
-
-imagefilename = <span class="string">'input_cahn_hilliard.png'</span>;
-maskfilename  = <span class="string">'mask_cahn_hilliard.png'</span>;
-
-<span class="comment">% PARAMETERS</span>
+<span class="comment">% inpainting</span>
+inpainting_mumford_shah(u,mask,maxiter,tol,param);
+</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="mumford_shah_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 68.771376 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','mumford-shah','inpainting_mumford_shah.m'))">inpainting_mumford_shah.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Esedoglu, S., &amp; Shen, J. (2002). Digital inpainting based on the Mumford-Shah-Euler image model. European Journal of Applied Mathematics, 13(04), 353-370.</li></ul></div><h2 id="27">4) Cahn-Hilliard Inpainting</h2><p>Function used to reproduce Figure 5.9 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'cahn_hilliard_clean.png'</span>;
+</pre><p>cahn_hilliard_clean.png :</p><p><img vspace="5" hspace="5" src="cahn_hilliard_clean.png" alt=""> </p><pre class="codeinput">maskfilename  = <span class="string">'cahn_hilliard_mask.png'</span>;
+</pre><p>cahn_hilliard_mask.png :</p><p><img vspace="5" hspace="5" src="cahn_hilliard_mask.png" alt=""> </p><pre class="codeinput">[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,<span class="string">'./dataset/cahn_hilliard_input.png'</span>)
+</pre><p>cahn_hilliard_input.png :</p><p><img vspace="5" hspace="5" src="cahn_hilliard_input.png" alt=""> </p><pre class="codeinput"><span class="comment">% parameters</span>
 maxiter       = 4000;
 param.epsilon = [100 1];
 param.lambda  = 10;
 param.dt      = 1;
 
-inpainting_cahn_hilliard(imagefilename,maskfilename,maxiter,param);
-
-cd <span class="string">..</span>
-</pre><p>
-<table border="1" cellspacing="10px" cellpadding="10px">
-<tr>
-  <td style="text-align:center;"><b>Input</b></td>
-  <td style="text-align:center;"><b>Output</b></td>
-</tr>
-<tr>
-  <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/masked_cahn_hilliard.png" style="max-height:100%; max-width:100%"></img></td>
-  <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/output_cahn_hilliard.png" style="max-height:100%; max-width:100%"</img></td></tr>
-</tr>
-</table>
-</p><p><b>Tic/Toc time</b>: Elapsed time is 7.297550 seconds.</p><h2 id="25">Transport Inpainting</h2><p>See the code <a href="matlab:edit(fullfile('./transport/inpainting_transport.m'))">inpainting_transport.m</a> for the publish function.</p><p><b>Note</b>: Function used to reproduce Figure 6.1 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><p><b>Bibliography</b></p><div><ul><li>Bertalmio, M. (2001). Processing of flat and non-flat image information on arbitrary manifolds using partial differential equations.PhD Thesis, 2001.</li></ul></div><pre class="codeinput">cd <span class="string">./transport</span>
-
-imagefilename = <span class="string">'input_transport.png'</span>;
-maskfilename  = <span class="string">'mask_transport.png'</span>;
-
-<span class="comment">% PARAMETERS</span>
+<span class="comment">% inpainting</span>
+inpainting_cahn_hilliard(u,mask,maxiter,param);
+</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="cahn_hilliard_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 7.297550 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','cahn-hilliard','inpainting_cahn_hilliard.m'))">inpainting_cahn_hilliard.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Bertozzi, A., Esedoglu, S. &amp; Gillette, A. (2007). Inpainting of binary images using the Cahn-Hilliard equation, IEEE Transactions on image processing 16.1 pp. 285-291 (2007).</li><li>Schoenlieb, C.-B. &amp; Bertozzi, A. (2011). Unconditionally stable schemes for higher order inpainting, Communications in Mathematical Sciences, Volume 9, Issue 2, pp. 413-457 (2011).</li></ul></div><h2 id="35">5) Transport Inpainting</h2><p>Function used to reproduce Figure 6.1 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'transport_clean.png'</span>;
+</pre><p>transport_clean.png :</p><p><img vspace="5" hspace="5" src="transport_clean.png" alt=""> </p><pre class="codeinput">maskfilename  = <span class="string">'transport_mask.png'</span>;
+</pre><p>transport_mask.png :</p><p><img vspace="5" hspace="5" src="transport_mask.png" alt=""> </p><pre class="codeinput">[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,<span class="string">'./dataset/transport_input.png'</span>)
+</pre><p>transport_input.png :</p><p><img vspace="5" hspace="5" src="transport_input.png" alt=""> </p><pre class="codeinput"><span class="comment">% parameters</span>
 tol           = 1e-5;
 maxiter       = 50;
 dt            = 0.1;
@@ -217,75 +134,36 @@ param.M       = 40; <span class="comment">% number of steps of the inpainting pr
 param.N       = 2;  <span class="comment">% number of steps of the anisotropic diffusion;</span>
 param.eps     = 1e-10;
 
-inpainting_transport(imagefilename,maskfilename,maxiter,tol,dt,param);
-
-cd <span class="string">..</span>
-</pre><p>
-<table border="1" cellspacing="10px" cellpadding="10px">
-<tr>
-  <td style="text-align:center;"><b>Input</b></td>
-  <td style="text-align:center;"><b>Output</b></td>
-<tr>
-  <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/masked_transport.png" style="max-height:100%; max-width:100%"></img></td>
-  <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/output_transport.png" style="max-height:100%; max-width:100%"></img></td>
-</tr>
-</table>
-</p><p><b>Tic/Toc time</b>: Elapsed time is 136.258208 seconds.</p><h2 id="30">M-file that created this page</h2><p><a href="../demo_html.m">demo_html.m</a></p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+<span class="comment">% inpainting</span>
+inpainting_transport(u,mask,maxiter,tol,dt,param);
+</pre><p>Results image:</p><p><img vspace="5" hspace="5" src="transport_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 136.258208 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','transport','inpainting_transport.m'))">inpainting_transport.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Bertalmio, M. (2001). Processing of flat and non-flat image information on arbitrary manifolds using partial differential equations.PhD Thesis, 2001.</li></ul></div><h2 id="43">M-file that created this page</h2><p><a href="./demo_html.m">demo_html.m</a></p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% MATLAB Codes for the Image Inpainting Problem
-%  Copyright (c) 2016, Simone Parisotto and Carola-Bibiane Schoenlieb
-%  All rights reserved.
-% 
-%  Redistribution and use in source and binary forms, with or without 
-%  modification, are permitted provided that the following conditions are met:
-% 
-%  1. Redistributions of source code must retain the above copyright notice,
-%     this list of conditions and the following disclaimer.
-% 
-%  2. Redistributions in binary form must reproduce the above copyright 
-%     notice, this list of conditions and the following disclaimer in the 
-%     documentation and/or other materials provided with the distribution.
-% 
-%  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
-%  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
-%  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-%  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-%  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
-%  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED 
-%  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-%  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-%  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
-%  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-%  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+% All the scripts provided are used in <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
+% (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).
 %
-%  Authors:
-%  Simone Parisotto (email: sp751 at cam dot ac dot uk)
-%  Carola-Bibiane Schoenlieb (email: cbs31 at cam dot ac dot uk)
-%      
-%  Address:
-%  Cambridge Image Analysis
-%  Centre for Mathematical Sciences
-%  Wilberforce Road
-%  Cambridge CB3 0WA
-%  United Kingdom
+% Authors:
+% Simone Parisotto          (email: sp751 at cam dot ac dot uk)
+% Carola-Bibiane Schoenlieb (email: cbs31 at cam dot ac dot uk)
 %  
-%  Date:
-%  September, 2016
-%%
+% Address:
+% Cambridge Image Analysis
+% Centre for Mathematical Sciences
+% Wilberforce Road
+% CB3 0WA, Cambridge, United Kingdom
+%  
+% Date:
+% September, 2016
+%
+% Last update:
+% October, 2018
+%
+% Licence: BSD-3-Clause (<https://opensource.org/licenses/BSD-3-Clause>)
+%
 
 %% How to cite this work
-% All the scripts provided are used in <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
-% (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015):
-%%
-%  @book{Schonlieb:2015ux,
-%   author    = {Sch\"{o}nlieb, Carola-Bibiane},
-%   title     = {{Partial Differential Equation Methods for Image Inpainting}},
-%   publisher = {Cambridge University Press},
-%   month     = {November}
-%   year      = {2015},
-%  }
-%%
 % Please use the following entry to cite this code:
+%
 %%
 %  @Misc{MATLABinpainting2016,
 %   author       = {Parisotto, Simone and Sch\"{o}nlieb, Carola},
@@ -295,214 +173,246 @@ cd <span class="string">..</span>
 %   year         = {2016}
 %  }
 
-%%  Absolute Minimizing Lipschitz Extension Inpainting (AMLE)
-% See the code 
-% <matlab:edit(fullfile('./amle/inpainting_amle.m')) inpainting_amle.m> 
-% for the publish function.
-%%
-% *Note*: Function used to reproduce Figure 4.10 in
+%% 1) AMLE Inpainting (Absolute Minimizing Lipschitz Extension Inpainting)
+% Function used to reproduce Figure 4.10 in
 % <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
 % (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).
+
+cleanfilename = 'amle_clean.png';
 %%
-% *Bibliography*
+% amle_clean.png :
 %
-% * Caselles, V., Morel, J. M., & Sbert, C. (1998). An axiomatic approach to image interpolation. Image Processing, IEEE Transactions on, 7(3), 376-386.
-% * Almansa, A. (2002). Echantillonnage, interpolation et detection: applications en imagerie satellitaire (Doctoral dissertation, Cachan, Ecole normale superieure). 
- 
-cd ./amle
+% <<amle_clean.png>>
 
-imagefilename = 'input_amle.png';
+maskfilename  = 'amle_mask.png';
+%%
+% amle_mask.png :
+%
+% <<amle_mask.png>>
 
-% PARAMETERS
+[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,'./dataset/amle_input.png')
+%%
+% amle_input.png :
+%
+% <<amle_input.png>>
+
+% parameters
 lambda        = 10^2; 
 tol           = 1e-8;
 maxiter       = 40000;
 dt            = 0.01;
 
-inpainting_amle(imagefilename,lambda,tol,maxiter,dt);
-
-cd ..
-
+% inpainting
+inpainting_amle(u,mask,lambda,tol,maxiter,dt);
 %%
-% <html>
-% <table border="1" cellspacing="10px" cellpadding="10px">
-% <tr>
-%   <td style="text-align:center;"><b>Input</b></td>
-%   <td style="text-align:center;"><b>Output</b></td>
-% </tr>
-% <tr>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/input_amle.png" style="max-height:100%; max-width:100%"></img></td>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/output_amle.png" style="max-height:100%; max-width:100%"</img></td>
-% </tr>
-% </table>
-% </html>
+% Result image:
 %
+% <<amle_output.png>>
+%
+
 %%
 % *Tic/Toc time*: Elapsed time is 45.978034 seconds.
 %
 
-%% Harmonic Inpainting
-% See the code  code> 
-% <matlab:edit(fullfile('./harmonic/inpainting_harmonic.m')) inpainting_harmonic.m> 
-% for the publish function.
 %%
-% *Note*: Function used to reproduce Figure 2.2 in
-% <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
-% (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).
+% See the code 
+% <matlab:edit(fullfile('.','lib','inpainting_amle.m')) inpainting_amle.m>.
+
 %%
 % *Bibliography*
 %
-% * Shen, J., & Chan, T. F. (2002). Mathematical models for local nontexture inpaintings. SIAM Journal on Applied Mathematics, 62(3), 1019-1043.
+% * Caselles, V., Morel, J. M., & Sbert, C. (1998). An axiomatic approach to image interpolation. Image Processing, IEEE Transactions on, 7(3), 376-386.
+% * Almansa, A. (2002). Echantillonnage, interpolation et detection: applications en imagerie satellitaire (Doctoral dissertation, Cachan, Ecole normale superieure). 
 
-cd ./harmonic
 
-imagefilename = 'input_harmonic.png';
-maskfilename  = 'mask_harmonic.png';
+%% 2) Harmonic Inpainting
+% Function used to reproduce Figure 2.2 in
+% <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
+% (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).
 
-% PARAMETERS
+cleanfilename = 'harmonic_clean.png';
+%%
+% harmonic_clean.png :
+%
+% <<harmonic_clean.png>>
+
+maskfilename  = 'harmonic_mask.png';
+%%
+% harmonic_mask.png :
+%
+% <<harmonic_mask.png>>
+[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,'./dataset/harmonic_input.png')
+%%
+% harmonic_input.png :
+%
+% <<harmonic_input.png>>
+
+% parameters
 lambda        = 10;
 tol           = 1e-5;
 maxiter       = 500;
 dt            = 0.1;
 
-inpainting_harmonic(imagefilename,maskfilename,lambda,tol,maxiter,dt);
-
-cd ..
-
+% inpainting
+inpainting_harmonic(u,mask,lambda,tol,maxiter,dt);
 %%
-% <html>
-% <table border="1" cellspacing="10px" cellpadding="10px">
-% <tr>
-%   <td style="text-align:center;"><b>Input</b></td>
-%   <td style="text-align:center;"><b>Output</b></td>
-% </tr>
-% <tr>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/masked_harmonic.png" style="max-height:100%; max-width:100%"></img></td>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/output_harmonic.png" style="max-height:100%; max-width:100%"</img></td>
-% </tr>
-% </table>
-% </html>
+% Result image:
 %
+% <<harmonic_output.png>>
+%
+
 %%
 % *Tic/Toc time*: Elapsed time is 1.010271 seconds.
 %
 
-%% Mumford-Shah Inpainting
-% See the code 
-% <matlab:edit(fullfile('./mumford-shah/inpainting_mumford_shah.m')) inpainting_mumford_shah.m> 
-% for the publish function.
+%% 
+% See the code
+% <matlab:edit(fullfile('.','lib','harmonic','inpainting_harmonic.m'))
+% inpainting_harmonic.m>.
+
 %%
-% *Note*: Function used to reproduce Figure 7.3 in
+% *Bibliography*
+%
+% * Shen, J., & Chan, T. F. (2002). Mathematical models for local nontexture inpaintings. SIAM Journal on Applied Mathematics, 62(3), 1019-1043.
+
+%% 3) Mumford-Shah Inpainting
+% Function used to reproduce Figure 7.3 in
 % <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
 % (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).
+
+cleanfilename = 'mumford_shah_clean.png';
+%%
+% mumford_shah_clean.png :
+%
+% <<mumford_shah_clean.png>>
+%
+maskfilename  = 'mumford_shah_mask.png';
+%%
+% mumford_shah_mask.png :
+%
+% <<mumford_shah_mask.png>>
+%
+[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,'./dataset/mumford_shah_input.png')
+%%
+% mumford_shah_input.png :
+%
+% <<mumford_shah_input.png>>
+%
+
+% parameters
+maxiter       = 20; 
+tol           = 1e-14;
+param.lambda  = 10^9;   % weight on data fidelity (should usually be large).
+param.alpha   = 1;      % regularisation parameters \alpha.
+param.gamma   = 0.5;    % regularisation parameters \gamma.
+param.epsilon = 0.05;   % accuracy of Ambrosio-Tortorelli approximation of the edge set.
+
+% inpainting
+inpainting_mumford_shah(u,mask,maxiter,tol,param);
+%%
+% Result image:
+%
+% <<mumford_shah_output.png>>
+%
+
+%%
+% *Tic/Toc time*: Elapsed time is 68.771376 seconds.
+%
+
+%%
+% See the code 
+% <matlab:edit(fullfile('.','lib','mumford-shah','inpainting_mumford_shah.m'))
+% inpainting_mumford_shah.m>.
+
 %%
 % *Bibliography*
 %
 % * Esedoglu, S., & Shen, J. (2002). Digital inpainting based on the Mumford-Shah-Euler image model. European Journal of Applied Mathematics, 13(04), 353-370.
 
-cd ./mumford-shah
-
-imagefilename = 'input_mumford_shah.png';
-maskfilename  = 'mask_mumford_shah.png';
-
-% PARAMETERS
-maxiter       = 20; 
-tol           = 1e-14;
-param.lambda  = 10^9;   % weight on data fidelity (should usually be large).
-param.alpha   = 1;  % regularisation parameters \alpha.
-param.gamma   = 0.5;    % regularisation parameters \gamma.
-param.epsilon = 0.05;    % accuracy of Ambrosio-Tortorelli approximation of the edge set.
-
-inpainting_mumford_shah(imagefilename,maskfilename,maxiter,tol,param);
-
-cd ..
-
-%%
-% <html>
-% <table border="1" cellspacing="10px" cellpadding="10px">
-% <tr>
-%   <td style="text-align:center;"><b>Input</b></td>
-%   <td style="text-align:center;"><b>Output</b></td>
-%   <td style="text-align:center;"><b>Levels</b></td>
-% </tr>
-% <tr>
-%   <td style="width:33%; height:33%; text-align:center; vertical-align:middle"><img src="images/masked_mumford_shah.png" style="max-height:100%; max-width:100%"></img></td>
-%   <td style="width:33%; height:33%; text-align:center; vertical-align:middle"><img src="images/output_mumford_shah.png" style="max-height:100%; max-width:100%"</img></td>
-%   <td style="width:33%; height:33%; text-align:center; vertical-align:middle"><img src="images/levels_mumford_shah.png" style="max-height:100%; max-width:100%"</img></td>
-% </tr>
-% </table>
-% </html>
-%
-%%
-% *Tic/Toc time*: Elapsed time is 68.771376 seconds.
-%
-
-%% Cahn-Hilliard Inpainting
-% See the code 
-% <matlab:edit(fullfile('./cahn-Hilliard/inpainting_cahn_hilliard.m')) inpainting_cahn_hilliard.m> 
-% for the publish function.
-%%
-% *Note*: Function used to reproduce Figure 5.9 in
+%% 4) Cahn-Hilliard Inpainting
+% Function used to reproduce Figure 5.9 in
 % <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
 % (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).
+
+cleanfilename = 'cahn_hilliard_clean.png';
 %%
-% *Bibliography*
+% cahn_hilliard_clean.png :
 %
-% *  Bertozzi, A., Esedoglu, S. & Gillette, A. (2007). Inpainting of binary images using the Cahn-Hilliard equation, IEEE Transactions on image processing 16.1 pp. 285-291 (2007).
-% * Schoenlieb, C.-B. & Bertozzi, A. (2011). Unconditionally stable schemes for higher order inpainting, Communications in Mathematical Sciences, Volume 9, Issue 2, pp. 413-457 (2011).
+% <<cahn_hilliard_clean.png>>
+%
+maskfilename  = 'cahn_hilliard_mask.png';
+%%
+% cahn_hilliard_mask.png :
+%
+% <<cahn_hilliard_mask.png>>
+%
+[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,'./dataset/cahn_hilliard_input.png')
+%%
+% cahn_hilliard_input.png :
+%
+% <<cahn_hilliard_input.png>>
+%
 
-cd ./cahn-hilliard
-
-imagefilename = 'input_cahn_hilliard.png';
-maskfilename  = 'mask_cahn_hilliard.png';
-
-% PARAMETERS
+% parameters
 maxiter       = 4000; 
 param.epsilon = [100 1];
 param.lambda  = 10;
 param.dt      = 1;
 
-inpainting_cahn_hilliard(imagefilename,maskfilename,maxiter,param);
-
-cd ..
-
+% inpainting
+inpainting_cahn_hilliard(u,mask,maxiter,param);
 %%
-% <html>
-% <table border="1" cellspacing="10px" cellpadding="10px">
-% <tr>
-%   <td style="text-align:center;"><b>Input</b></td>
-%   <td style="text-align:center;"><b>Output</b></td>
-% </tr>
-% <tr>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/masked_cahn_hilliard.png" style="max-height:100%; max-width:100%"></img></td>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/output_cahn_hilliard.png" style="max-height:100%; max-width:100%"</img></td></tr>
-% </tr>
-% </table>
-% </html>
+% Result image:
 %
+% <<cahn_hilliard_output.png>>
+%
+
 %%
 % *Tic/Toc time*: Elapsed time is 7.297550 seconds.
 %
 
-%% Transport Inpainting
-% See the code 
-% <matlab:edit(fullfile('./transport/inpainting_transport.m')) inpainting_transport.m> 
-% for the publish function.
 %%
-% *Note*: Function used to reproduce Figure 6.1 in
-% <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
-% (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).
+% See the code 
+% <matlab:edit(fullfile('.','lib','cahn-hilliard','inpainting_cahn_hilliard.m'))
+% inpainting_cahn_hilliard.m>.
+
 %%
 % *Bibliography*
 %
-% * Bertalmio, M. (2001). Processing of flat and non-flat image information on arbitrary manifolds using partial differential equations.PhD Thesis, 2001.
+% * Bertozzi, A., Esedoglu, S. & Gillette, A. (2007). Inpainting of binary images using the Cahn-Hilliard equation, IEEE Transactions on image processing 16.1 pp. 285-291 (2007).
+% * Schoenlieb, C.-B. & Bertozzi, A. (2011). Unconditionally stable schemes for higher order inpainting, Communications in Mathematical Sciences, Volume 9, Issue 2, pp. 413-457 (2011).
 
-cd ./transport
 
-imagefilename = 'input_transport.png';
-maskfilename  = 'mask_transport.png';
+%% 5) Transport Inpainting
+% Function used to reproduce Figure 6.1 in
+% <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
+% (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).
 
-% PARAMETERS
+cleanfilename = 'transport_clean.png';
+%%
+% transport_clean.png :
+%
+% <<transport_clean.png>>
+%
+maskfilename  = 'transport_mask.png';
+%%
+% transport_mask.png :
+%
+% <<transport_mask.png>>
+%
+[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,'./dataset/transport_input.png')
+%%
+% transport_input.png :
+%
+% <<transport_input.png>>
+%
+
+% parameters
 tol           = 1e-5;
 maxiter       = 50;
 dt            = 0.1;
@@ -510,28 +420,28 @@ param.M       = 40; % number of steps of the inpainting procedure;
 param.N       = 2;  % number of steps of the anisotropic diffusion;
 param.eps     = 1e-10;
 
-inpainting_transport(imagefilename,maskfilename,maxiter,tol,dt,param);
-
-cd ..
-
+% inpainting
+inpainting_transport(u,mask,maxiter,tol,dt,param);
 %%
-% <html>
-% <table border="1" cellspacing="10px" cellpadding="10px">
-% <tr>
-%   <td style="text-align:center;"><b>Input</b></td>
-%   <td style="text-align:center;"><b>Output</b></td>
-% <tr>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/masked_transport.png" style="max-height:100%; max-width:100%"></img></td>
-%   <td style="width:48%; height:48%; text-align:center; vertical-align:middle"><img src="images/output_transport.png" style="max-height:100%; max-width:100%"></img></td>
-% </tr>
-% </table>
-% </html>
+% Results image:
 %
+% <<transport_output.png>>
+%
+
 %%
 % *Tic/Toc time*: Elapsed time is 136.258208 seconds.
 %
 
+%%
+% See the code 
+% <matlab:edit(fullfile('.','transport','inpainting_transport.m'))
+% inpainting_transport.m>.
+%%
+% *Bibliography*
+%
+% * Bertalmio, M. (2001). Processing of flat and non-flat image information on arbitrary manifolds using partial differential equations.PhD Thesis, 2001.
+
 %% M-file that created this page
-% <../demo_html.m demo_html.m>
+% <./demo_html.m demo_html.m>
 ##### SOURCE END #####
 --></body></html>

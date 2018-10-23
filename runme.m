@@ -1,106 +1,80 @@
-%% MATLAB Codes for the Image Inpainting Problem
-%  Copyright (c) 2016, Simone Parisotto and Carola-Bibiane Schoenlieb
-%  All rights reserved.
-% 
-%  Redistribution and use in source and binary forms, with or without 
-%  modification, are permitted provided that the following conditions are met:
-% 
-%  1. Redistributions of source code must retain the above copyright notice,
-%     this list of conditions and the following disclaimer.
-% 
-%  2. Redistributions in binary form must reproduce the above copyright 
-%     notice, this list of conditions and the following disclaimer in the 
-%     documentation and/or other materials provided with the distribution.
-% 
-%  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
-%  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
-%  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-%  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-%  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
-%  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED 
-%  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-%  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-%  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
-%  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-%  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+%% "MATLAB Codes for the Image Inpainting Problem"
 %
-%  Authors:
-%  Simone Parisotto (email: sp751 at cam dot ac dot uk)
-%  Carola-Bibiane Schoenlieb (email: cbs31 at cam dot ac dot uk)
+% Authors:
+% Simone Parisotto          (email: sp751 at cam dot ac dot uk)
+% Carola-Bibiane Schoenlieb (email: cbs31 at cam dot ac dot uk)
 %      
-%  Address:
-%  Cambridge Image Analysis
-%  Centre for Mathematical Sciences
-%  Wilberforce Road
-%  Cambridge CB3 0WA
-%  United Kingdom
+% Address:
+% Cambridge Image Analysis
+% Centre for Mathematical Sciences
+% Wilberforce Road
+% CB3 0WA, Cambridge, United Kingdom
 %  
-%  Date:
-%  September, 2016
-%%
+% Date:
+% September, 2016
+%
+% Licence: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
+%
 
-%% How to cite this work
-% All the scripts provided are used in <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
-% (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015):
-%%
-%  @book{Schonlieb:2015ux,
-%   author    = {Sch\"{o}nlieb, Carola-Bibiane},
-%   title     = {{Partial Differential Equation Methods for Image Inpainting}},
-%   publisher = {Cambridge University Press},
-%   month     = {November}
-%   year      = {2015},
-%  }
-%%
-% Please use the following entry to cite this code:
-%%
-%  @Misc{MATLABinpainting2016,
-%   author       = {Parisotto, Simone and Sch\"{o}nlieb, Carola},
-%   title        = {MATLAB Codes for the {Image} {Inpainting} {Problem}},
-%   howpublished = {GitHub repository, {MATLAB} Central File Exchange},
-%   month        = {September},
-%   year         = {2016}
-%  }
+addpath ./lib
+addpath ./dataset
 
 %%  Absolute Minimizing Lipschitz Extension Inpainting (AMLE)
-cd ./amle
+clear
+close all
+clc
 
-imagefilename = 'input_amle.png';
+% create the corrupted image with the mask
+cleanfilename = 'amle_clean.png';
+maskfilename  = 'amle_mask.png';
+[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,'./dataset/amle_input.png')
 
-% PARAMETERS
+% parameters
 lambda        = 10^2; 
 tol           = 1e-8;
 maxiter       = 40000;
 dt            = 0.01;
 
+% inpainting
 tic
-inpainting_amle(imagefilename,lambda,tol,maxiter,dt);
+inpainting_amle(u,mask,lambda,tol,maxiter,dt);
 toc
 
-cd ..
-
 %% Harmonic Inpainting
-cd ./harmonic
+clear
+close all
+clc
 
-imagefilename = 'input_harmonic.png';
-maskfilename  = 'mask_harmonic.png';
+% create the corrupted image with the mask
+cleanfilename = 'harmonic_clean.png';
+maskfilename  = 'harmonic_mask.png';
+[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,'./dataset/harmonic_input.png')
 
-% PARAMETERS
+% parameters
 lambda        = 10;
 tol           = 1e-5;
 maxiter       = 500;
 dt            = 0.1;
 
-inpainting_harmonic(imagefilename,maskfilename,lambda,tol,maxiter,dt);
-
-cd ..
+% inpainting
+tic
+inpainting_harmonic(u,mask,lambda,tol,maxiter,dt);
+toc
 
 %% Mumford-Shah Inpainting
-cd ./mumford-shah
+clear
+close all
+clc
 
-imagefilename = 'input_mumford_shah.png';
-maskfilename  = 'mask_mumford_shah.png';
+% create the corrupted image with the mask
+cleanfilename = 'mumford_shah_clean.png';
+maskfilename  = 'mumford_shah_mask.png';
+[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,'./dataset/mumford_shah_input.png')
 
-% PARAMETERS
+% parameters
 maxiter       = 20; 
 tol           = 1e-14;
 param.lambda  = 10^9;   % weight on data fidelity (should usually be large).
@@ -108,33 +82,45 @@ param.alpha   = 1;      % regularisation parameters \alpha.
 param.gamma   = 0.5;    % regularisation parameters \gamma.
 param.epsilon = 0.05;   % accuracy of Ambrosio-Tortorelli approximation of the edge set.
 
-inpainting_mumford_shah(imagefilename,maskfilename,maxiter,tol,param);
-
-cd ..
+% inpainting
+tic
+inpainting_mumford_shah(u,mask,maxiter,tol,param);
+toc
 
 %% Cahn-Hilliard Inpainting
-cd ./cahn-hilliard
+clear
+close all
+clc
 
-imagefilename = 'input_cahn_hilliard.png';
-maskfilename  = 'mask_cahn_hilliard.png';
+% create the corrupted image with the mask
+cleanfilename = 'cahn_hilliard_clean.png';
+maskfilename  = 'cahn_hilliard_mask.png';
+[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,'./dataset/cahn_hilliard_input.png')
 
-% PARAMETERS
+% parameters
 maxiter       = 4000; 
 param.epsilon = [100 1];
 param.lambda  = 10;
 param.dt      = 1;
 
-inpainting_cahn_hilliard(imagefilename,maskfilename,maxiter,param);
-
-cd ..
+% inpainting
+tic
+inpainting_cahn_hilliard(u,mask,maxiter,param);
+toc
 
 %% Transport Inpainting
-cd ./transport
+clear
+close all
+clc
 
-imagefilename = 'input_transport.png';
-maskfilename  = 'mask_transport.png';
+% create the corrupted image with the mask
+cleanfilename = 'transport_clean.png';
+maskfilename  = 'transport_mask.png';
+[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
+imwrite(u,'./dataset/transport_input.png')
 
-% PARAMETERS
+% parameters
 tol           = 1e-5;
 maxiter       = 50;
 dt            = 0.1;
@@ -142,6 +128,7 @@ param.M       = 40; % number of steps of the inpainting procedure;
 param.N       = 2;  % number of steps of the anisotropic diffusion;
 param.eps     = 1e-10;
 
-inpainting_transport(imagefilename,maskfilename,maxiter,tol,dt,param);
-
-cd ..
+% inpainting
+tic
+inpainting_transport(u,mask,maxiter,tol,dt,param);
+toc
