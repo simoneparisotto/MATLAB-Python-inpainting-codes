@@ -27,9 +27,9 @@ License: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
 
 <h4>1) Absolute Minimizing Lipschitz Extension Inpainting (AMLE)</h4>
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/amle_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/amle_output.png"> 
-
 **Note**: Used to reproduce Figure 4.10 in the book. (Only grayscale images).
+
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/amle_clean.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/amle_output.png"> 
       
 **Bibliography**:
 - Caselles, V., Morel, J. M., & Sbert, C. (1998). An axiomatic approach to image interpolation. Image Processing, IEEE Transactions on, 7(3), 376-386.
@@ -37,29 +37,27 @@ License: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
 
 <h4>2) Harmonic Inpainting</h4>
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/harmonic_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/harmonic_output.png"> 
-
 **Note** Used to reproduce Figure 2.2 in the book. This program solves harmonic inpainting via a discrete heat flow. (Both Grayscale / Color Images).
+
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/harmonic_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/harmonic_output.png"> 
 
 **Bibliography**:
 - Shen, J., & Chan, T. F. (2002). Mathematical models for local nontexture inpaintings. SIAM Journal on Applied Mathematics, 62(3), 1019-1043.
 
 <h4>3) Mumford-Shah Inpainting with Ambrosio-Tortorelli approximation</h4>
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/mumford_shah_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/mumford_shah_output.png"> 
-
 **Note**: Used to reproduce Figure 7.3 in the book.  (Both Grayscale / Color Images).
+
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/mumford_shah_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/mumford_shah_output.png"> 
 
 **Bibliography**: 
 - Esedoglu, S., & Shen, J. (2002). Digital inpainting based on the Mumford-Shah-Euler image model. European Journal of Applied Mathematics, 13(04), 353-370.
 
 <h4>4) Cahn-Hilliard Inpainting</h4>
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/cahn_hilliard_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/cahn_hilliard_output.png"> 
-
-**Path**: ./cahn-hilliard/inpainting_cahn_hilliard.m
-
 **Note**: Used to reproduce Figure 5.9 in the book.  (Both Grayscale / Color Images).
+
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/cahn_hilliard_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/cahn_hilliard_output.png"> 
 
 **Bibliography**: 
 - Bertozzi, A., Esedoglu, S. & Gillette, A. (2007). Inpainting of binary images using the Cahn-Hilliard equation, IEEE Transactions on image processing 16.1 pp. 285-291 (2007).
@@ -67,9 +65,9 @@ License: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
 
 <h4>5) Transport Inpainting</h4>
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/transport_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/transport_output.png"> 
-
 **Note**: Refer to Section 6.1 in the book. (Both Grayscale / Color Images).
+
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/transport_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/transport_output.png"> 
 
 **Bibliography**:
 - Bertalmio, M. (2001). Processing of flat and non-flat image information on arbitrary manifolds using partial differential equations.PhD Thesis, 2001.
