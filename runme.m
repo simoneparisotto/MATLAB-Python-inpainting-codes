@@ -15,6 +15,9 @@
 %
 % Licence: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
 %
+clear
+close all
+clc
 
 addpath ./lib
 addpath ./dataset
@@ -22,7 +25,6 @@ addpath ./dataset
 %%  Absolute Minimizing Lipschitz Extension Inpainting (AMLE)
 clear
 close all
-clc
 
 % create the corrupted image with the mask
 cleanfilename = 'amle_clean.png';
@@ -44,7 +46,6 @@ toc
 %% Harmonic Inpainting
 clear
 close all
-clc
 
 % create the corrupted image with the mask
 cleanfilename = 'harmonic_clean.png';
@@ -66,7 +67,6 @@ toc
 %% Mumford-Shah Inpainting
 clear
 close all
-clc
 
 % create the corrupted image with the mask
 cleanfilename = 'mumford_shah_clean.png';
@@ -90,7 +90,6 @@ toc
 %% Cahn-Hilliard Inpainting
 clear
 close all
-clc
 
 % create the corrupted image with the mask
 cleanfilename = 'cahn_hilliard_clean.png';
@@ -112,7 +111,6 @@ toc
 %% Transport Inpainting
 clear
 close all
-clc
 
 % create the corrupted image with the mask
 cleanfilename = 'transport_clean.png';

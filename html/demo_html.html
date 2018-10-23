@@ -84,7 +84,7 @@ dt            = 0.01;
 
 <span class="comment">% inpainting</span>
 inpainting_amle(u,mask,lambda,tol,maxiter,dt);
-</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="amle_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 45.978034 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','inpainting_amle.m'))">inpainting_amle.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Caselles, V., Morel, J. M., &amp; Sbert, C. (1998). An axiomatic approach to image interpolation. Image Processing, IEEE Transactions on, 7(3), 376-386.</li><li>Almansa, A. (2002). Echantillonnage, interpolation et detection: applications en imagerie satellitaire (Doctoral dissertation, Cachan, Ecole normale superieure).</li></ul></div><h2 id="11">2) Harmonic Inpainting</h2><p>Function used to reproduce Figure 2.2 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'harmonic_clean.png'</span>;
+</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="amle_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 34.93 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','inpainting_amle.m'))">inpainting_amle.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Caselles, V., Morel, J. M., &amp; Sbert, C. (1998). An axiomatic approach to image interpolation. Image Processing, IEEE Transactions on, 7(3), 376-386.</li><li>Almansa, A. (2002). Echantillonnage, interpolation et detection: applications en imagerie satellitaire (Doctoral dissertation, Cachan, Ecole normale superieure).</li></ul></div><h2 id="11">2) Harmonic Inpainting</h2><p>Function used to reproduce Figure 2.2 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'harmonic_clean.png'</span>;
 </pre><p>harmonic_clean.png :</p><p><img vspace="5" hspace="5" src="harmonic_clean.png" alt=""> </p><pre class="codeinput">maskfilename  = <span class="string">'harmonic_mask.png'</span>;
 </pre><p>harmonic_mask.png :</p><p><img vspace="5" hspace="5" src="harmonic_mask.png" alt=""> </p><pre class="codeinput">[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
 imwrite(u,<span class="string">'./dataset/harmonic_input.png'</span>)
@@ -96,7 +96,7 @@ dt            = 0.1;
 
 <span class="comment">% inpainting</span>
 inpainting_harmonic(u,mask,lambda,tol,maxiter,dt);
-</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="harmonic_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 1.010271 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','harmonic','inpainting_harmonic.m'))">inpainting_harmonic.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Shen, J., &amp; Chan, T. F. (2002). Mathematical models for local nontexture inpaintings. SIAM Journal on Applied Mathematics, 62(3), 1019-1043.</li></ul></div><h2 id="19">3) Mumford-Shah Inpainting</h2><p>Function used to reproduce Figure 7.3 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'mumford_shah_clean.png'</span>;
+</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="harmonic_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 2.14 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','harmonic','inpainting_harmonic.m'))">inpainting_harmonic.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Shen, J., &amp; Chan, T. F. (2002). Mathematical models for local nontexture inpaintings. SIAM Journal on Applied Mathematics, 62(3), 1019-1043.</li></ul></div><h2 id="19">3) Mumford-Shah Inpainting</h2><p>Function used to reproduce Figure 7.3 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'mumford_shah_clean.png'</span>;
 </pre><p>mumford_shah_clean.png :</p><p><img vspace="5" hspace="5" src="mumford_shah_clean.png" alt=""> </p><pre class="codeinput">maskfilename  = <span class="string">'mumford_shah_mask.png'</span>;
 </pre><p>mumford_shah_mask.png :</p><p><img vspace="5" hspace="5" src="mumford_shah_mask.png" alt=""> </p><pre class="codeinput">[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
 imwrite(u,<span class="string">'./dataset/mumford_shah_input.png'</span>)
@@ -110,7 +110,7 @@ param.epsilon = 0.05;   <span class="comment">% accuracy of Ambrosio-Tortorelli 
 
 <span class="comment">% inpainting</span>
 inpainting_mumford_shah(u,mask,maxiter,tol,param);
-</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="mumford_shah_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 68.771376 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','mumford-shah','inpainting_mumford_shah.m'))">inpainting_mumford_shah.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Esedoglu, S., &amp; Shen, J. (2002). Digital inpainting based on the Mumford-Shah-Euler image model. European Journal of Applied Mathematics, 13(04), 353-370.</li></ul></div><h2 id="27">4) Cahn-Hilliard Inpainting</h2><p>Function used to reproduce Figure 5.9 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'cahn_hilliard_clean.png'</span>;
+</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="mumford_shah_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 48.99 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','mumford-shah','inpainting_mumford_shah.m'))">inpainting_mumford_shah.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Esedoglu, S., &amp; Shen, J. (2002). Digital inpainting based on the Mumford-Shah-Euler image model. European Journal of Applied Mathematics, 13(04), 353-370.</li></ul></div><h2 id="27">4) Cahn-Hilliard Inpainting</h2><p>Function used to reproduce Figure 5.9 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'cahn_hilliard_clean.png'</span>;
 </pre><p>cahn_hilliard_clean.png :</p><p><img vspace="5" hspace="5" src="cahn_hilliard_clean.png" alt=""> </p><pre class="codeinput">maskfilename  = <span class="string">'cahn_hilliard_mask.png'</span>;
 </pre><p>cahn_hilliard_mask.png :</p><p><img vspace="5" hspace="5" src="cahn_hilliard_mask.png" alt=""> </p><pre class="codeinput">[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
 imwrite(u,<span class="string">'./dataset/cahn_hilliard_input.png'</span>)
@@ -122,7 +122,7 @@ param.dt      = 1;
 
 <span class="comment">% inpainting</span>
 inpainting_cahn_hilliard(u,mask,maxiter,param);
-</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="cahn_hilliard_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 7.297550 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','cahn-hilliard','inpainting_cahn_hilliard.m'))">inpainting_cahn_hilliard.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Bertozzi, A., Esedoglu, S. &amp; Gillette, A. (2007). Inpainting of binary images using the Cahn-Hilliard equation, IEEE Transactions on image processing 16.1 pp. 285-291 (2007).</li><li>Schoenlieb, C.-B. &amp; Bertozzi, A. (2011). Unconditionally stable schemes for higher order inpainting, Communications in Mathematical Sciences, Volume 9, Issue 2, pp. 413-457 (2011).</li></ul></div><h2 id="35">5) Transport Inpainting</h2><p>Function used to reproduce Figure 6.1 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'transport_clean.png'</span>;
+</pre><p>Result image:</p><p><img vspace="5" hspace="5" src="cahn_hilliard_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 8.35 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','lib','cahn-hilliard','inpainting_cahn_hilliard.m'))">inpainting_cahn_hilliard.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Bertozzi, A., Esedoglu, S. &amp; Gillette, A. (2007). Inpainting of binary images using the Cahn-Hilliard equation, IEEE Transactions on image processing 16.1 pp. 285-291 (2007).</li><li>Schoenlieb, C.-B. &amp; Bertozzi, A. (2011). Unconditionally stable schemes for higher order inpainting, Communications in Mathematical Sciences, Volume 9, Issue 2, pp. 413-457 (2011).</li></ul></div><h2 id="35">5) Transport Inpainting</h2><p>Function used to reproduce Figure 6.1 in <a href="http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR">Partial Differential Equation Methods for Image Inpainting</a> (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).</p><pre class="codeinput">cleanfilename = <span class="string">'transport_clean.png'</span>;
 </pre><p>transport_clean.png :</p><p><img vspace="5" hspace="5" src="transport_clean.png" alt=""> </p><pre class="codeinput">maskfilename  = <span class="string">'transport_mask.png'</span>;
 </pre><p>transport_mask.png :</p><p><img vspace="5" hspace="5" src="transport_mask.png" alt=""> </p><pre class="codeinput">[u,mask]      = create_image_and_mask(cleanfilename,maskfilename);
 imwrite(u,<span class="string">'./dataset/transport_input.png'</span>)
@@ -136,7 +136,7 @@ param.eps     = 1e-10;
 
 <span class="comment">% inpainting</span>
 inpainting_transport(u,mask,maxiter,tol,dt,param);
-</pre><p>Results image:</p><p><img vspace="5" hspace="5" src="transport_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 136.258208 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','transport','inpainting_transport.m'))">inpainting_transport.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Bertalmio, M. (2001). Processing of flat and non-flat image information on arbitrary manifolds using partial differential equations.PhD Thesis, 2001.</li></ul></div><h2 id="43">M-file that created this page</h2><p><a href="./demo_html.m">demo_html.m</a></p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+</pre><p>Results image:</p><p><img vspace="5" hspace="5" src="transport_output.png" alt=""> </p><p><b>Tic/Toc time</b>: Elapsed time is 151.69 seconds.</p><p>See the code <a href="matlab:edit(fullfile('.','transport','inpainting_transport.m'))">inpainting_transport.m</a>.</p><p><b>Bibliography</b></p><div><ul><li>Bertalmio, M. (2001). Processing of flat and non-flat image information on arbitrary manifolds using partial differential equations.PhD Thesis, 2001.</li></ul></div><h2 id="43">M-file that created this page</h2><p><a href="./demo_html.m">demo_html.m</a></p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% MATLAB Codes for the Image Inpainting Problem
 % All the scripts provided are used in <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
@@ -212,7 +212,7 @@ inpainting_amle(u,mask,lambda,tol,maxiter,dt);
 %
 
 %%
-% *Tic/Toc time*: Elapsed time is 45.978034 seconds.
+% *Tic/Toc time*: Elapsed time is 34.93 seconds.
 %
 
 %%
@@ -264,7 +264,7 @@ inpainting_harmonic(u,mask,lambda,tol,maxiter,dt);
 %
 
 %%
-% *Tic/Toc time*: Elapsed time is 1.010271 seconds.
+% *Tic/Toc time*: Elapsed time is 2.14 seconds.
 %
 
 %% 
@@ -319,7 +319,7 @@ inpainting_mumford_shah(u,mask,maxiter,tol,param);
 %
 
 %%
-% *Tic/Toc time*: Elapsed time is 68.771376 seconds.
+% *Tic/Toc time*: Elapsed time is 48.99 seconds.
 %
 
 %%
@@ -372,7 +372,7 @@ inpainting_cahn_hilliard(u,mask,maxiter,param);
 %
 
 %%
-% *Tic/Toc time*: Elapsed time is 7.297550 seconds.
+% *Tic/Toc time*: Elapsed time is 8.35 seconds.
 %
 
 %%
@@ -429,7 +429,7 @@ inpainting_transport(u,mask,maxiter,tol,dt,param);
 %
 
 %%
-% *Tic/Toc time*: Elapsed time is 136.258208 seconds.
+% *Tic/Toc time*: Elapsed time is 151.69 seconds.
 %
 
 %%

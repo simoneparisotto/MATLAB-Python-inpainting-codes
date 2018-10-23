@@ -72,7 +72,7 @@ inpainting_amle(u,mask,lambda,tol,maxiter,dt);
 %
 
 %%
-% *Tic/Toc time*: Elapsed time is 45.978034 seconds.
+% *Tic/Toc time*: Elapsed time is 34.93 seconds.
 %
 
 %%
@@ -124,7 +124,7 @@ inpainting_harmonic(u,mask,lambda,tol,maxiter,dt);
 %
 
 %%
-% *Tic/Toc time*: Elapsed time is 1.010271 seconds.
+% *Tic/Toc time*: Elapsed time is 2.14 seconds.
 %
 
 %% 
@@ -179,7 +179,7 @@ inpainting_mumford_shah(u,mask,maxiter,tol,param);
 %
 
 %%
-% *Tic/Toc time*: Elapsed time is 68.771376 seconds.
+% *Tic/Toc time*: Elapsed time is 48.99 seconds.
 %
 
 %%
@@ -232,7 +232,7 @@ inpainting_cahn_hilliard(u,mask,maxiter,param);
 %
 
 %%
-% *Tic/Toc time*: Elapsed time is 7.297550 seconds.
+% *Tic/Toc time*: Elapsed time is 8.35 seconds.
 %
 
 %%
@@ -289,7 +289,7 @@ inpainting_transport(u,mask,maxiter,tol,dt,param);
 %
 
 %%
-% *Tic/Toc time*: Elapsed time is 136.258208 seconds.
+% *Tic/Toc time*: Elapsed time is 151.69 seconds.
 %
 
 %%
