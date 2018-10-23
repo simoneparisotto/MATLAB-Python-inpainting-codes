@@ -27,8 +27,7 @@ License: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
 
 <h4>1) Absolute Minimizing Lipschitz Extension Inpainting (AMLE)</h4>
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/amle_input.png" width="150px"> 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/amle_output.png" width="150px"> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/amle_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/amle_output.png"> 
 
 **Note**: Used to reproduce Figure 4.10 in the book. (Only grayscale images).
       
@@ -38,8 +37,7 @@ License: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
 
 <h4>2) Harmonic Inpainting</h4>
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/harmonic_input.png" width="150px"> 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/harmonic_output.png" width="150px"> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/harmonic_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/harmonic_output.png"> 
 
 **Note** Used to reproduce Figure 2.2 in the book. This program solves harmonic inpainting via a discrete heat flow. (Both Grayscale / Color Images).
 
@@ -48,8 +46,7 @@ License: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
 
 <h4>3) Mumford-Shah Inpainting with Ambrosio-Tortorelli approximation</h4>
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/mumford_shah_input.png" width="150px"> 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/mumford_shah_output.png" width="150px"> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/mumford_shah_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/mumford_shah_output.png"> 
 
 **Note**: Used to reproduce Figure 7.3 in the book.  (Both Grayscale / Color Images).
 
@@ -58,8 +55,7 @@ License: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
 
 <h4>4) Cahn-Hilliard Inpainting</h4>
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/cahn-hilliard_input.png" width="150px"> 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/cahn-hilliard_output.png" width="150px"> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/cahn_hilliard_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/cahn_hilliard_output.png"> 
 
 **Path**: ./cahn-hilliard/inpainting_cahn_hilliard.m
 
@@ -71,8 +67,7 @@ License: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
 
 <h4>5) Transport Inpainting</h4>
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/transport_input.png" width="150px"> 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/transport_output.png" width="150px"> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/transport_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/transport_output.png"> 
 
 **Note**: Refer to Section 6.1 in the book. (Both Grayscale / Color Images).
 
