@@ -30,8 +30,6 @@ License: BSD-3-Clause (https://opensource.org/licenses/BSD-3-Clause)
 <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/blob/master/dataset/amle_input.png" width="150px"> 
 <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/blob/master/results/amle_output.png" width="150px"> 
 
-https://raw.githubusercontent.com/simoneparisotto/Anisotropic-osmosis-filter/master/runme_syntethic/results/case11/u_CLA_65.png
-
 **Path**: ./amle/inpainting_amle.m
 
 **Note**: Used to reproduce Figure 4.10 in the book. (Only grayscale images).
