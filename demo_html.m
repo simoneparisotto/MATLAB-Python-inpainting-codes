@@ -33,7 +33,7 @@
 %   year         = {2016}
 %  }
 
-%% 1) AMLE Inpainting (Absolute Minimizing Lipschitz Extension Inpainting)
+%% 1) AMLE (Absolute Minimizing Lipschitz Extension) Inpainting
 % Function used to reproduce Figure 4.10 in
 % <http://www.cambridge.org/km/academic/subjects/mathematics/mathematical-modelling-and-methods/partial-differential-equation-methods-image-inpainting?format=AR Partial Differential Equation Methods for Image Inpainting>
 % (Carola-Bibiane Schoenlieb, Cambridge University Press, 2015).

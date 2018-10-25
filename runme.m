@@ -1,4 +1,4 @@
-%% "MATLAB Codes for the Image Inpainting Problem"
+%% MATLAB Codes for the Image Inpainting Problem
 %
 % Authors:
 % Simone Parisotto          (email: sp751 at cam dot ac dot uk)
@@ -22,7 +22,7 @@ clc
 addpath ./lib
 addpath ./dataset
 
-%%  Absolute Minimizing Lipschitz Extension Inpainting (AMLE)
+%% AMLE (Absolute Minimizing Lipschitz Extension) Inpainting
 clear
 close all
 
