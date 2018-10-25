@@ -65,7 +65,7 @@ Used to reproduce Figure 5.9 in the book.  (Both Grayscale / Color Images).
 
 Refer to Section 6.1 in the book. (Both Grayscale / Color Images).
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/transport_input.png"  width=45%> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/transport_output.png" witdh=45%> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/dataset/transport_input.png"  width=45%> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Codes-for-the-Image-Inpainting-Problem/master/results/transport_output.png" width=45%> 
 
 **Bibliography**:
 - Bertalmio, M. (2001). Processing of flat and non-flat image information on arbitrary manifolds using partial differential equations.PhD Thesis, 2001.
