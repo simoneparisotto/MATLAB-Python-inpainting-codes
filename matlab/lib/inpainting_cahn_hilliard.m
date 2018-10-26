@@ -68,6 +68,7 @@ Denominator = Lambda1*ones(M,N) + ones(M,N)*Lambda2;
 % Now we can write the above equation in much simpler way and compute the
 % solution u_hat
 
+% FOR EACH COLOR CHANNEL
 for c = 1:C
     
     % Initialization of Fourier transform:

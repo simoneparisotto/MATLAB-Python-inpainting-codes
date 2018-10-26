@@ -50,6 +50,7 @@ f = input;
 % FOR EACH COLOR CHANNEL
 for c = 1:C
     
+    % ITERATION
     for iter = 1:maxiter
         
         % COMPUTE NEW SOLUTION

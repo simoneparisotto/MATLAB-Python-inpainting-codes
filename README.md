@@ -1,5 +1,5 @@
 # MATLAB codes for the Image Inpainting Problem
-This is a detailed Matlab implementation of classic inpainting methods.
+This is a detailed MATLAB implementation of classic inpainting methods.
 
 All the scripts provided are used in
 
@@ -20,7 +20,7 @@ Please use the following entry to cite this code:
  howpublished = {GitHub repository, {MATLAB} Central File Exchange},
  month        = {September},
  year         = {2016}
-  }
+ }
 ```
 
 <h4>1) Absolute Minimizing Lipschitz Extension Inpainting (AMLE)</h4>

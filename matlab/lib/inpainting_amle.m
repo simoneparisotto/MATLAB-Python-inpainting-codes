@@ -24,9 +24,6 @@ function u = inpainting_amle(input,mask,lambda,tol,maxiter,dt)
 
 [M,N,C] = size(input);
 
-%% INITIALIZATION OF u with random data in the missed domain
-u = input;
-
 %% GRADIENT
 % GRID INTERVAL FOR AXIS ij
 h1 = 1; h2 = 1;
@@ -63,48 +60,52 @@ clear d1i_forward d1i_backward d1j_forward d1j_backward
 
 %% INPAINTING ALGORITHM
 % INITIALIZATION
-u     = u(:);
-input = input(:);
-mask  = mask(:);
+u     = reshape(input,M*N,C);
+input = reshape(input,M*N,C);
+mask  = reshape(mask,M*N,C);
+
 v     = zeros(M*N,2);
 
-% ITERATION
-for iter = 1:maxiter
-    ux = D1i_forward*u; % forward differences along i
-    uy = D1j_forward*u; % forward differences along j
+% FOR EACH COLOR CHANNEL
+for c = 1:C
+
+    % ITERATION
+    for iter = 1:maxiter
+        ux = D1i_forward*u(:,c); % forward differences along i
+        uy = D1j_forward*u(:,c); % forward differences along j
     
-    % second derivatives
-    uxx = DD1i_backward*ux;
-    uxy = DD1j_backward*ux;
-    uyx = DD1i_backward*uy;
-    uyy = DD1j_backward*uy;
+        % second derivatives
+        uxx = DD1i_backward*ux;
+        uxy = DD1j_backward*ux;
+        uyx = DD1i_backward*uy;
+        uyy = DD1j_backward*uy;
     
-    % create direction field Du/|Du| with central differences
-    v(:,1) = D1i_centered*u;
-    v(:,2) = D1j_centered*u;
-    % normalize the direction field
-    v = bsxfun(@rdivide,v,sqrt(sum(v.^2,2)));
-    v(isnan(v)) = 0;
+        % create direction field Du/|Du| with central differences
+        v(:,1) = D1i_centered*u(:,c);
+        v(:,2) = D1j_centered*u(:,c);
+        % normalize the direction field
+        v = bsxfun(@rdivide,v,sqrt(sum(v.^2,2)));
+        v(isnan(v)) = 0;
     
-    % CORE ITERATION
-    unew = u + dt*(uxx.*v(:,1).^2+uyy.*v(:,2).^2 + (uxy+uyx) .* (v(:,1).*v(:,2)) + lambda*mask.*(input-u));
+        % CORE ITERATION
+        unew = u(:,c) + dt*(uxx.*v(:,1).^2+uyy.*v(:,2).^2 + (uxy+uyx) .* (v(:,1).*v(:,2)) + lambda*mask(:,c).*(input(:,c)-u(:,c)));
     
-    % COMPUTE EXIT CONDITION
-    if ~mod(iter-1,1000)
-        diff = norm(unew-u)/norm(unew);
+        % COMPUTE EXIT CONDITION
+        diff = norm(unew-u(:,c))/norm(unew);
+    
+        % UPDATE
+        u(:,c) = unew;
+    
+        % TEST EXIT CONDITION
+        if diff<tol
+            break
+        end
     end
     
-    % UPDATE
-    u = unew;
-    
-    % TEST EXIT CONDITION
-    if diff<tol
-        break
-    end
 end
 
 %% GET THE 2D SOLUTION
-u = reshape(u,M,N);
+u = reshape(u,M,N,C);
 
 %% WRITE IMAGE OUTPUT
 imwrite(u,'./results/amle_output.png')
