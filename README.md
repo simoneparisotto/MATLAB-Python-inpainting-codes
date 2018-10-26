@@ -27,7 +27,7 @@ Please use the following entry to cite this code:
 
 Used to reproduce Figure 4.10 in the book.
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/dataset/amle_clean.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/results/amle_output.png"> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/matlab/dataset/amle_clean.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/matlab/results/amle_output.png"> 
       
 **Bibliography**:
 - Caselles, V., Morel, J. M., & Sbert, C. (1998). An axiomatic approach to image interpolation. Image Processing, IEEE Transactions on, 7(3), 376-386.
@@ -37,7 +37,7 @@ Used to reproduce Figure 4.10 in the book.
 
 Used to reproduce Figure 2.2 in the book. This program solves harmonic inpainting via a discrete heat flow.
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/dataset/harmonic_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/results/harmonic_output.png"> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/matlab/dataset/harmonic_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/matlab/results/harmonic_output.png"> 
 
 **Bibliography**:
 - Shen, J., & Chan, T. F. (2002). Mathematical models for local nontexture inpaintings. SIAM Journal on Applied Mathematics, 62(3), 1019-1043.
@@ -46,7 +46,7 @@ Used to reproduce Figure 2.2 in the book. This program solves harmonic inpaintin
 
 **Note**: Used to reproduce Figure 7.3 in the book.
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/dataset/mumford_shah_input.png"  width=45%> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/results/mumford_shah_output.png"  width=45%> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/matlab/dataset/mumford_shah_input.png"  width=45%> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/matlab/results/mumford_shah_output.png"  width=45%> 
 
 **Bibliography**: 
 - Esedoglu, S., & Shen, J. (2002). Digital inpainting based on the Mumford-Shah-Euler image model. European Journal of Applied Mathematics, 13(04), 353-370.
@@ -55,7 +55,7 @@ Used to reproduce Figure 2.2 in the book. This program solves harmonic inpaintin
 
 Used to reproduce Figure 5.9 in the book.
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/dataset/cahn_hilliard_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/results/cahn_hilliard_output.png"> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/matlab/dataset/cahn_hilliard_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/matlab/results/cahn_hilliard_output.png"> 
 
 **Bibliography**: 
 - Bertozzi, A., Esedoglu, S. & Gillette, A. (2007). Inpainting of binary images using the Cahn-Hilliard equation, IEEE Transactions on image processing 16.1 pp. 285-291 (2007).
@@ -65,7 +65,7 @@ Used to reproduce Figure 5.9 in the book.
 
 Refer to Section 6.1 in the book. (Both Grayscale / Color Images).
 
-<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/dataset/transport_input.png"  width=45%> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/results/transport_output.png" width=45%> 
+<img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/matlab/dataset/transport_input.png"  width=45%> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/matlab/results/transport_output.png" width=45%> 
 
 **Bibliography**:
 - Bertalmio, M. (2001). Processing of flat and non-flat image information on arbitrary manifolds using partial differential equations.PhD Thesis, 2001.
