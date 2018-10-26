@@ -1,5 +1,5 @@
-# MATLAB codes for the Image Inpainting Problem
-This is a detailed MATLAB implementation of classic inpainting methods.
+# MATLAB/Python Codes for the Image Inpainting Problem
+This is a detailed MATLAB/Python implementation of classic inpainting methods.
 
 All the scripts provided are used in
 
