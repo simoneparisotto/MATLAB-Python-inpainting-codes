@@ -25,7 +25,7 @@ Please use the following entry to cite this code:
 
 <h4>1) Absolute Minimizing Lipschitz Extension Inpainting (AMLE)</h4>
 
-Used to reproduce Figure 4.10 in the book. (Only grayscale images).
+Used to reproduce Figure 4.10 in the book.
 
 <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/dataset/amle_clean.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/results/amle_output.png"> 
       
@@ -35,7 +35,7 @@ Used to reproduce Figure 4.10 in the book. (Only grayscale images).
 
 <h4>2) Harmonic Inpainting</h4>
 
-Used to reproduce Figure 2.2 in the book. This program solves harmonic inpainting via a discrete heat flow. (Both Grayscale / Color Images).
+Used to reproduce Figure 2.2 in the book. This program solves harmonic inpainting via a discrete heat flow.
 
 <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/dataset/harmonic_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/results/harmonic_output.png"> 
 
@@ -44,7 +44,7 @@ Used to reproduce Figure 2.2 in the book. This program solves harmonic inpaintin
 
 <h4>3) Mumford-Shah Inpainting with Ambrosio-Tortorelli approximation</h4>
 
-**Note**: Used to reproduce Figure 7.3 in the book.  (Both Grayscale / Color Images).
+**Note**: Used to reproduce Figure 7.3 in the book.
 
 <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/dataset/mumford_shah_input.png"  width=45%> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/results/mumford_shah_output.png"  width=45%> 
 
@@ -53,7 +53,7 @@ Used to reproduce Figure 2.2 in the book. This program solves harmonic inpaintin
 
 <h4>4) Cahn-Hilliard Inpainting</h4>
 
-Used to reproduce Figure 5.9 in the book.  (Both Grayscale / Color Images).
+Used to reproduce Figure 5.9 in the book.
 
 <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/dataset/cahn_hilliard_input.png"> <img src="https://raw.githubusercontent.com/simoneparisotto/MATLAB-Python-inpainting-codes/master/results/cahn_hilliard_output.png"> 
 
