@@ -17,8 +17,8 @@ Please use the following entry to cite this code:
   year         = 2020,
   publisher    = {Zenodo},
   version      = {3.0.0},
-  doi          = {10.5281/zenodo.4315174},
-  url          = {https://doi.org/10.5281/zenodo.4315174}
+  doi          = {10.5281/zenodo.4315173},
+  url          = {https://doi.org/10.5281/zenodo.4315173}
 }
 ```
 
