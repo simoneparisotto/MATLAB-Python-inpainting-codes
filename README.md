@@ -1,5 +1,5 @@
 # MATLAB/Python Codes for the Image Inpainting Problem
-[![View MATLAB/Python Codes for the Image Inpainting Problem on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/55326-matlab-python-codes-for-the-image-inpainting-problem)
+[![DOI](https://zenodo.org/badge/73518110.svg)](https://zenodo.org/badge/latestdoi/73518110) [![View MATLAB/Python Codes for the Image Inpainting Problem on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/55326-matlab-python-codes-for-the-image-inpainting-problem)
 
 This is a detailed MATLAB/Python implementation of classic inpainting methods.
 
@@ -21,6 +21,7 @@ Please use the following entry to cite this code:
  title        = {{MATLAB}/{Python} Codes for the {Image} {Inpainting} {Problem}},
  howpublished = {GitHub repository, {MATLAB} Central File Exchange},
  month        = {September},
+ doi          = {10.5281/zenodo.4315174}
  year         = {2016}
  }
 ```
