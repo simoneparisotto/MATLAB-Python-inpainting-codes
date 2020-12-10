@@ -1,4 +1,6 @@
 # MATLAB/Python Codes for the Image Inpainting Problem
+[![View MATLAB/Python Codes for the Image Inpainting Problem on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/55326-matlab-python-codes-for-the-image-inpainting-problem)
+
 This is a detailed MATLAB/Python implementation of classic inpainting methods.
 
 All the scripts provided are used in the [book](https://www.cambridge.org/core/books/partial-differential-equation-methods-for-image-inpainting/F4750CEA96C35354A97E2161130E91DC):
