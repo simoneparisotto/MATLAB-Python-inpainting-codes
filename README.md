@@ -3,27 +3,23 @@
 
 This is a detailed MATLAB/Python implementation of classic inpainting methods.
 
-All the scripts provided are used in the [book](https://www.cambridge.org/core/books/partial-differential-equation-methods-for-image-inpainting/F4750CEA96C35354A97E2161130E91DC):
-
-```
-Schoenlieb, Carola-Bibiane
-Partial Differential Equation Methods for Image Inpainting.
-Cambridge Monographs on Applied and Computational Mathematics,
-Cambridge University Press, 2015
-doi:10.1017/CBO9780511734304
-```
+All the scripts provided are used in the book "[Partial Differential Equation Methods for Image Inpainting](https://www.cambridge.org/core/books/partial-differential-equation-methods-for-image-inpainting/F4750CEA96C35354A97E2161130E91DC)" by Carola-Bibiane Schönlieb, Cambridge Monographs on Applied and Computational Mathematics, Cambridge University Press, 2015:
 
 Please use the following entry to cite this code:
 
 ```
-@Misc{MATLABinpainting2016,
- author       = {Parisotto, Simone and Sch\"{o}nlieb, Carola},
- title        = {{MATLAB}/{Python} Codes for the {Image} {Inpainting} {Problem}},
- howpublished = {GitHub repository, {MATLAB} Central File Exchange},
- month        = {September},
- doi          = {10.5281/zenodo.4315174}
- year         = {2016}
- }
+ @software{ParSch2016,
+  author       = {Simone Parisotto and
+                  Carola-Bibiane Sch\"{o}nlieb},
+  title        = {{MATLAB/Python Codes for the Image Inpainting 
+                   Problem}},
+  month        = dec,
+  year         = 2020,
+  publisher    = {Zenodo},
+  version      = {3.0.0},
+  doi          = {10.5281/zenodo.4315174},
+  url          = {https://doi.org/10.5281/zenodo.4315174}
+}
 ```
 
 <h4>1) Absolute Minimizing Lipschitz Extension Inpainting (AMLE)</h4>
